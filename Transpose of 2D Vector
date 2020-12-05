@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+std::vector<std::vector<float>> transpose(const std::vector<std::vector<float> > &b)              //Pass by reference
+{
+    std::vector<std::vector<float> > trans_vec(b[0].size(), std::vector<float>(b.size()));
+    for (size_t i = 0; i < b.size(); i++)                                                        //size_t used specially when looping through arrays
+    {
+        for (size_t j = 0; j < b[0].size(); j++)
+        {
+            trans_vec[j][i] = b[i][j];
+        }
+    }
+    return trans_vec;
+}
+
+int main () {
+      std::vector<std::vector<float>> a{{0.0,1.0,2.0},{3.0,4.0,5.0}};   //Declaration of 2D Vector
+      std::vector<std::vector<float>> A = transpose(a);                 //Function Call
+      
+      
+      return 0;
+}
